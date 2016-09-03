@@ -1,10 +1,10 @@
 /**
  * Very efficient compared to a naive solution which would have (2^n). 
- * It can return large numbers in O(n^2) time. The reason why O(n^2) is
- * we consider the 'for' statement as O(n) and since the addition inside 
- * the loop is going to be adding very large numbers it is not a regular
- * addition of O(1) but rather O(n) as well. This is at least according
- * to a lecture at UCSD.
+ * Since the addition is on extremely large numbers, we don't consider 
+ * the addition taking O(1) time but rather O(n) time. This is at least 
+ * according to a recorded lecture at UCSD. Therefore both the loop and 
+ * the addition inside the loop are each O(n) resulting in an efficiency 
+ * of O(n^2).
  */
 function fibonacci(n){
   const arr = [];
