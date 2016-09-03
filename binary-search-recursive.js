@@ -1,9 +1,9 @@
 /**
- * A binary search works on a pre-sorted array, low to high. This is a divide and conquer approach
- * where we calculate the middle index and if the element is not found at that index then we
- * recursively slice the array in half until we either find the key or the array is empty.
- * The running efficiency is O(log n) since even an extremely large n in just one iteration 
- * becomes a problem of size n/2.
+ * A binary search works on a pre-sorted array, low to high. This is a divide and conquer 
+ * approach where we calculate the middle index and if the element is not found at that 
+ * index then we recursively slice the array in half until we either find the key or the 
+ * array is empty. The running efficiency is O(log n) since even an extremely large n in 
+ * just one iteration becomes a problem of size n/2.
  */
 function binarySearchRecursive(arr, key){
   if(!arr.length){
