@@ -7,7 +7,7 @@
  */
 function binarySearchIterative(arr, key){
   while(arr.length){
-  	const mid = Math.floor(arr.length / 2);
+    const mid = Math.floor(arr.length / 2);
   	if(key === arr[mid]){
       return "found";
     } else if(key < arr[mid]){
