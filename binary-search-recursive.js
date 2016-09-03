@@ -4,19 +4,19 @@
  * recursively slice the array in half until we either find the key or the array is empty.
  */
 function binarySearchRecursive(arr, key){
-	if(!arr.length){
-		return "not found";
-	}
-	const mid = Math.floor(arr.length / 2);
-	if(key === arr[mid]){
-		return "found";
-	} else if(key < arr[mid]){
-	  // We don't do mid+1 because when we calculated mid we took the floor.
-		return binarySearchRecursive(arr.slice(0, mid), key);
-	}else{
-	  // We do mid+1 because we already know it's not the middle.
-		return binarySearchRecursive(arr.slice(mid + 1), key);
-	}
+  if(!arr.length){
+    return "not found";
+  }
+  const mid = Math.floor(arr.length / 2);
+  if(key === arr[mid]){
+    return "found";
+  } else if(key < arr[mid]){
+    // We don't do mid+1 because when we calculated mid we took the floor.
+    return binarySearchRecursive(arr.slice(0, mid), key);
+  }else{
+    // We do mid+1 because we already know it's not the middle.
+    return binarySearchRecursive(arr.slice(mid + 1), key);
+  }
 }
 
 binarySearchRecursive([-5, 8, 17, 20, 60, 75, 77, 88, 913], 913);
