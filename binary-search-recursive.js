@@ -3,7 +3,9 @@
  * approach where we calculate the middle index and if the element is not found at that 
  * index then we recursively slice the array in half until we either find the key or the 
  * array is empty. The running efficiency is O(log n) since even an extremely large n in 
- * just one iteration becomes a problem of size n/2.
+ * just one iteration becomes a problem of size n/2. The primary disadvantage of the 
+ * recursive version compared to the iterative version is that the recursive version takes 
+ * more stack space.
  */
 function binarySearchRecursive(arr, key){
   if(!arr.length){
