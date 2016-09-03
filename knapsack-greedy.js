@@ -36,4 +36,4 @@ function knapsackGreedy(capacity, itemsArr){
 
 // Each unit of weight corresponds to a unit that can be included or excluded from the knapsack.
 // Note that the items are sorted with the highest value/weight ratios first in descending order.
-knapsackGreedy(7, [{value:14, weight: 2},{value:18, weight: 3},{value:20, weight: 4},{value:20, weight: 10}]); // $42
+knapsackGreedy(7, [{value:14, weight: 2},{value:18, weight: 3},{value:20, weight: 4},{value:20, weight: 10}]); // [ 42, [ 2, 3, 2, 0 ] ]
