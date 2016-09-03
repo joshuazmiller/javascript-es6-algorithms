@@ -1,14 +1,23 @@
 /**
- * The items are pre-sorted with the highest value/weight ratios first in descending order (the most
- * valuable items in descending order). Without pre-sorting, this function would run O(n^2) because
- * we'd need to do an inner loop finding the next most valuable item. With pre-sorting with Quicksort
- * or Mergesort you can get O(n log n) because our function would just be O(n) as in this example.
+ * Greedy Algorithms: In a greedy algorithm we find a 'safe move' which is a move that is the logical
+ * best next move, and once taken, the move reduces the problem into a subproblem (and then we take the 
+ * next safe-move etc.). In the knapsack problem the safe-move is to put the maximum available weight 
+ * from the next most valuable item into the knapsack (to the extent that the knapsack can hold more 
+ * weight of course). After reducing the weight of that item to 0 we have a subproblem and can take the
+ * maximum weight of the next most valuable item that will fit into the knapsack, and we do this greedy 
+ * move again and again.
+ * 
+ * In our function the items are pre-sorted with the highest value/weight ratios first in descending 
+ * order (the most valuable items in descending order). Without pre-sorting, this function would run 
+ * O(n^2) because we'd need to do an inner loop finding the next most valuable item. With pre-sorting 
+ * with Quicksort or Mergesort you can get O(n log n) because our function would just be O(n) as in 
+ * this example.
  */
 function knapsackGreedy(capacity, itemsArr){
   let totalValue = 0;
 
-  // Each element of the quantitiesArr stores the final quantity of the item in in the
-  // coresponding index of the itemsArr
+  // Each element of the quantitiesArr stores the final quantity of the item in in the coresponding 
+  // index of the itemsArr.
   let quantitiesArr = [];
 
   // We will fill the array with 0's so that trailing items that are not included in the knapsack
