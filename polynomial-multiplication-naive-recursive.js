@@ -43,22 +43,22 @@ function polynomialMultiplication(A, B, n, a, b){
 
   // Left 
   polynomialMultiplication(A, B, n/2, a, b).map((val, index)=>{
-  	product[index] = parseInt(val);
+    product[index] = parseInt(val);
   });
   // Right
   polynomialMultiplication(A, B, n/2, a + n/2, b + n/2).map((val, index)=>{
-  	product[n + index] = parseInt(val);
+    product[n + index] = parseInt(val);
   });
   // Middle
   const middle = [];
   const middleLeft = polynomialMultiplication(A, B, n/2, a + n/2, b);
   const middleRight = polynomialMultiplication(A, B, n/2, a, b + n/2);
   middleLeft.map((val, index) => {
-  	middle.push(parseInt(val) + parseInt(middleRight[index]));
+    middle.push(parseInt(val) + parseInt(middleRight[index]));
   });
   middle.map((val, index)=>{
     if(n/2+index <= n+n/2-2){
-  	  product[n/2 + index] += val;
+      product[n/2 + index] += val;
     }
   });
   
