@@ -83,5 +83,11 @@ function polynomialMultiplication(A, B){
   return product;
 }
 
-polynomialMultiplicationWrapper([2,2],[2,2]); // (2x + 2)(2x + 2) => [ 4, 8, 4 ] which means 4x^2 + 8x + 4
-polynomialMultiplicationWrapper([0,2,2],[3,5,4]); // (2x + 2)(3x^2 + 5x + 4) => [ 0, 6, 16, 18, 8 ] which means 6x^3 + 16x^2 + 18x + 8
+//(2x + 2)(2x + 2) => [ 4, 8, 4 ] which means 4x^2 + 8x + 4
+polynomialMultiplicationWrapper([2,2],[2,2]);
+
+//(2x + 2)(3x^2 + 5x + 4) => [ 0, 6, 16, 18, 8 ] which means 6x^3 + 16x^2 + 18x + 8
+polynomialMultiplicationWrapper([0,2,2],[3,5,4]);
+
+//(4x^3 + 3x^2 + 2x + 1)(x^3 + 2x^2 + 3x + 4) => [ 4, 11, 20, 30, 20, 11, 4 ] which means 4x^6 + 11x^5 + 20x^4 + 30x^3 + 20x^2 + 11x + 4
+polynomialMultiplicationWrapper([4,3,2,1],[1,2,3,4]);
