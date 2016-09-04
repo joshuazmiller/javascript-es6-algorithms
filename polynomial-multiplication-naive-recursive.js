@@ -67,7 +67,6 @@ function polynomialMultiplication(A, B, n, a, b){
   return product;
 }
 
-
 //(2x + 2)(2x + 2) => [ 4, 8, 4 ] which means 4x^2 + 8x + 4
 polynomialMultiplicationWrapper([2,2],[2,2]);
 
