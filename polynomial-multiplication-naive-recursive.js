@@ -11,8 +11,8 @@
  * 
  * MATH:
  * This is a representation of the classical mathematical approach to solving polynomials by hand. To implement 
- * the classical method requires a divide-and-conquer technique which is actually quite complicated. It's based
- * off even more complex pseudo code provided on a recorded lecture given by Neil Rhodes at UCSD. 
+ * the classical method requires a divide-and-conquer technique which is actually quite complicated to reason
+ * about. It's based off similarly complex pseudo code given on a recorded lecture by Neil Rhodes at UCSD. 
  * 
  * EFFICIENCY:
  * This function runs with an efficiency of O(n^2) or more precisely k*4n^2 since there are 4 branches which 
