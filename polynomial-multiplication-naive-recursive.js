@@ -57,7 +57,7 @@ function polynomialMultiplication(A, B, n, a, b){
     middle.push(parseInt(val) + parseInt(middleRight[index]));
   });
   middle.map((val, index)=>{
-    if(n/2+index <= n+n/2-2){
+    if(n/2+index <= n+n/2-2){ // this is simply the middle portion bounded on the left and right
       product[n/2 + index] += val;
     }
   });
