@@ -22,9 +22,9 @@
  */
 function polynomialMultiplicationWrapper(A, B){
   let n = A.length;
-  // For mathematical algorithmic purposes we need the lengths of the arrays to 
-  // be a power of 2 (basically we need a max degree with a value of 2^x - 1). If we don't have that 
-  // then we simply pad the polynomial with coefficients of 0's.
+  // For mathematical algorithmic purposes we need the lengths of the arrays to be a power of 2 (basically we 
+  // need a max degree with a value of 2^x - 1). If we don't have that then we simply pad the polynomial with 
+  // coefficients of 0's.
   while((n & (n - 1)) !== 0){ // check if the array lengths are a power of 2
     A.unshift(0);
     B.unshift(0);
@@ -40,21 +40,23 @@ function polynomialMultiplication(A, B, n, a, b){
     product[0] = A[a] * B[b];
     return product;
   }
-
-  // Left 
+  
+  //left 
   polynomialMultiplication(A, B, n/2, a, b).map((val, index)=>{
-    product[index] = parseInt(val);
+    product[index] = val;
   });
-  // Right
+  
+  //right
   polynomialMultiplication(A, B, n/2, a + n/2, b + n/2).map((val, index)=>{
-    product[n + index] = parseInt(val);
+    product[n + index] = val;
   });
-  // Middle
+  
+  //middle
   const middle = [];
   const middleLeft = polynomialMultiplication(A, B, n/2, a + n/2, b);
   const middleRight = polynomialMultiplication(A, B, n/2, a, b + n/2);
   middleLeft.map((val, index) => {
-    middle.push(parseInt(val) + parseInt(middleRight[index]));
+    middle.push(val + middleRight[index]);
   });
   middle.map((val, index)=>{
     if(n/2+index <= n+n/2-2){ // this is simply the middle portion bounded on the left and right
