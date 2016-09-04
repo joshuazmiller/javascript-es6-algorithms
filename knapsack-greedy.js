@@ -16,7 +16,7 @@
 function knapsackGreedy(capacity, itemsArr){
   let totalValue = 0;
 
-  // Each element of the quantitiesArr stores the final quantity of the item in in the coresponding 
+  // Each element of the quantitiesArr stores the final quantity of the item in the coresponding 
   // index of the itemsArr. We fill the array with 0's so that trailing items that are not included 
   // in the knapsack will still be represented in the quantities array.
   const quantitiesArr = new Array(itemsArr.length).fill(0);
