@@ -17,7 +17,7 @@ function polynomialMultiplicationNaive(A, B){
   // Note A and B are of equal size as noted in the INPUT section of the comments.
   for(let i = 0; i < A.length; i++){
     for(let j = 0; j < B.length; j++){
-		product[i+j] += A[i] * B[j];
+      product[i+j] += A[i] * B[j];
     }	
   }
   return product;
