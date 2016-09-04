@@ -17,8 +17,8 @@
  * EFFICIENCY:
  * This function runs with an efficiency of O(n^2) or more precisely k*4n^2 since there are 4 branches which 
  * each take n^2 time. This note is important because it's a precursor to the Karatsuba algorithm which cuts
- * the formula to only 3 branches which is a noticable improvement. That's why this method is called "naive"
- * since the Karatsuba is better.
+ * the formula to only 3 branches which is a noticable improvement because 3^(log2 n) equals n^1.58 so with
+ * Karatsuba we have O(n^1.58). That's why this method is called "naive" since the Karatsuba is better.
  */
 function polynomialMultiplicationWrapper(A, B){
   let n = A.length;
