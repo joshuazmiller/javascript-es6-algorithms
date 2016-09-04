@@ -33,8 +33,8 @@ function polynomialMultiplicationWrapper(A, B){
   return polynomialMultiplication(A, B, n, 0, 0);
 }
 function polynomialMultiplication(A, B, n, a, b){
-  // "product" will store an array of constants representing an identical format for polynomials as inputs A and B
-  // which requires padding with 0's.
+  // The array "product" will store constants representing an identical format for polynomials as inputs A and B
+  // which require padding with 0's to work.
   const product = new Array(2 * n - 2).fill(0); // 2n - 2 will be the number of terms from a polynomial multiplication.
   if(n === 1){
     product[0] = A[a] * B[b];
@@ -57,9 +57,9 @@ function polynomialMultiplication(A, B, n, a, b){
   	middle.push(parseInt(val) + parseInt(middleRight[index]));
   });
   middle.map((val, index)=>{
-  	if(n/2+index <= n+n/2-2){
-  		product[n/2 + index] += val;
-  	}
+    if(n/2+index <= n+n/2-2){
+  	  product[n/2 + index] += val;
+    }
   });
   
   return product;
