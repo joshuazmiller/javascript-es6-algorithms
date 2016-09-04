@@ -69,10 +69,10 @@ function polynomialMultiplication(A, B){
   
   // Overwrite portions of the product array.
   D1E1.map((val, index)=>{
-    product[index] = parseInt(val);
+    product[index] = val;
   });
   D0E0.map((val, index)=>{
-    product[n + index] = parseInt(val);
+    product[n + index] = val;
   });
   middle.map((val, index)=>{
     // This is simply the middle portion bounded on the left and right. We add to the current values.
