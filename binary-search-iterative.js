@@ -12,7 +12,7 @@ function binarySearchIterative(arr, key){
   	if(key === arr[mid]){
       return "found";
     } else if(key < arr[mid]){
-      // We don't do mid+1 because when we calculated mid we took the floor.
+      // We don't do mid-1 because when we calculated mid we took the floor.
       arr = arr.slice(0, mid);
     }else{
       // We do mid+1 because we already know it's not the middle.
