@@ -1,5 +1,5 @@
 /**
- * A binary search works on a pre-sorted array, low to high. This is a divide and conquer 
+ * A binary search works on a pre-sorted array, low to high. This is an iterative 
  * approach where we calculate the middle index and if the element is not found at that 
  * index then we iteratively slice the array in half until we either find the key or the 
  * array is empty. The running efficiency is O(log n) since even an extremely large n in 
