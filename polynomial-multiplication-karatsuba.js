@@ -20,8 +20,8 @@
  * which in our case a = 3 because we split into 3 branches per iteration and d = 1 because the meat of the 
  * function runs in O(n^1) time, so since log2(3) which is 1.58 is greater than d, according to the theorem we
  * get O(n^log2(a)) which in our case is O(n^1.58). This is more efficient than the classical method which 
- * splits to 4 branches per iteration computes as O(n^2). You can check that out in the other recursive solution 
- * I wrote for polynomial multiplication.
+ * splits to 4 branches per iteration and computes as being O(n^2). You can check that out in the classical 
+ * recursive algorithm I wrote for polynomial multiplication.
  */
 function polynomialMultiplicationWrapper(A, B){
   let n = A.length;
