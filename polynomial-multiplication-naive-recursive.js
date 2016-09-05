@@ -15,10 +15,12 @@
  * about. It's based off similarly complex pseudo code given on a recorded lecture by Neil Rhodes at UCSD. 
  * 
  * EFFICIENCY:
- * This function runs with an efficiency of O(n^2) or more precisely k*4n^2 since there are 4 branches which 
- * each take n^2 time. This note is important because it's a precursor to the Karatsuba algorithm which cuts
- * the formula to only 3 branches which is a noticable improvement because 3^(log2 n) equals n^1.58 so with
- * Karatsuba we have O(n^1.58). That's why this method is called "naive" since the Karatsuba is better.
+ * This function runs with an efficiency of O(n^2). We get this from the Master Theorem of aT(n/2) + O(n^d)
+ * which in our case a = 4 due to the four sub problems of each iteration, and d = 1 because the meat of the
+ * function is O(n), log2(a) is 2 and since a > d the theorem says that we get O(n^log2(a)) which computes to
+ * O(n^2). This function is a precursor to the Karatsuba algorithm which cuts the formula to only 3 branches 
+ * i.e. a = 3 which is a noticable improvement because log2(3) is equal to n^1.58 so with Karatsuba we have 
+ * O(n^1.58). That's why this method is labeled "naive" since the Karatsuba performs better.
  */
 function polynomialMultiplicationWrapper(A, B){
   let n = A.length;
