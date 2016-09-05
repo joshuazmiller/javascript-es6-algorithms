@@ -12,8 +12,8 @@
  * MATH:
  * This is a representation of the Karatsuba mathematical approach to solving polynomials. Karatsuba's insight
  * is that you can make 3 recursive multiplications instead of the 4 recursive multiplications that the classic
- * polynomial requires. It is arguably easier to reason about since the middle isn't split into 2 parts like 
- * the classical method but rather stays as one piece.
+ * approach to polynomial multiplication requires. It is arguably easier to reason about since the middle isn't 
+ * split into 2 recursive calls like the classical method but rather stays in one piece.
  * 
  * EFFICIENCY:
  * This function runs with an efficiency of O(n^1.58). This stems from the Master Theorem of aT(n/2) + O(n^d)
