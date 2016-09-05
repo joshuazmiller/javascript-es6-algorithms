@@ -16,9 +16,9 @@
  * calls, and d = 1 because the comparison/merging operation completes in linear time while merging n elements.
  * This means we have 2T(n/2) + O(n^1). The theorem says that if d == log2(a) then we have O(n^d log n). So 
  * log2(2) == 1 and d == 1, so we have O(n log n) like we thought. Also, note that O(n log n) can be shown to be
- * the optimal computational efficiency that any sorting algorithm can achieve. That said, mergesort's space 
- * complexity is suboptimal compared to an algorithm such as quicksort because mergesort must create a series
- * of n sub-arrays to store each of the values in their own array when the master array is fully split.
+ * the optimal computational efficiency that any comparison based sorting algorithm can achieve. That said, 
+ * mergesort's space complexity is suboptimal compared to an algorithm such as quicksort because mergesort must 
+ * create a series of n sub-arrays to store each of the values in their own array when the master array is fully split.
  */
 function mergesort(A){
   const n = A.length;
