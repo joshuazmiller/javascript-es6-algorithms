@@ -9,8 +9,8 @@
  * EFFICIENCY:
  * Due to its nested loop structure its operational efficiency is O(n^2). However its space complexity 
  * is O(1) since no additional arrays need to be created to complete the sort. Its operational efficiency 
- * is O(n^2) even though the unsorted portion of the array becomes incrementally smaller; this is the 
- * case because the algorithm is a manifistation of an arithmetic series which reduces to n(n+1)/2; we 
+ * is O(n^2) even though the unsorted portion of the array becomes incrementally smaller. This is the 
+ * case because the algorithm is a manifistation of an arithmetic series which reduces to n(n+1)/2. We 
  * can safely ignore the constants and we have O(n^2).
  */
 function selectionSort(arr){
