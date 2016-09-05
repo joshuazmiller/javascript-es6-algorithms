@@ -12,12 +12,16 @@
  * MATH:
  * This is a representation of the Karatsuba mathematical approach to solving polynomials. Karatsuba's insight
  * is that you can make 3 recursive multiplications instead of the 4 recursive multiplications that the classic
- * polynomial requires.
+ * polynomial requires. It is arguably easier to reason about since the middle isn't split into 2 parts like 
+ * the classical method but rather stays as one piece.
  * 
  * EFFICIENCY:
- * This function runs with an efficiency of O(n^1.58) or more precisely k3^(log2 n) since there are 3 branches 
- * which each take n^2 time. This is more efficient than the classical method which takes 4 branches of n^2 and
- * leads to O(n^2).
+ * This function runs with an efficiency of O(n^1.58). This stems from the Master Theorem of aT(n/2) + O(n^d)
+ * which in our case a = 3 because we split into 3 branches per iteration and d = 1 because the meat of the 
+ * function runs in O(n^1) time, so since log2(3) which is 1.58 is greater than d, according to the theorem we
+ * get O(n^log2(a)) which in our case is O(n^1.58). This is more efficient than the classical method which 
+ * splits to 4 branches per iteration computes as O(n^2). You can check that out in the other recursive solution 
+ * I wrote for polynomial multiplication.
  */
 function polynomialMultiplicationWrapper(A, B){
   let n = A.length;
