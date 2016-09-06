@@ -23,9 +23,6 @@ function quicksort(arr, left = 0, right = arr.length - 1){
   const pivot = arr[right];
   let leftIndex = left-1, specialLeftPartitionIndex = left-1;
   let rightIndex = right, specialRightPartitionIndex = right;
-  if (right <= left){
-    return;
-  }
   while(true){
     // we search for the next element on the left that is larger than (or equal to) the pivot and is therefore swap worthy
     while(arr[++leftIndex] < pivot);
@@ -74,9 +71,13 @@ function quicksort(arr, left = 0, right = arr.length - 1){
     [arr[leftIndex], arr[k]] = [arr[k], arr[leftIndex]];
   }
 
-  // Note that rightIndex and leftIndex now exclude the duplicates swapped into the middle, thereby reducing work further.
-  quicksort(arr, left, rightIndex);
-  quicksort(arr, leftIndex, right);
+  if (right <= left) {
+    return;
+  } else {
+    // Note that rightIndex and leftIndex now exclude the duplicates swapped into the middle, thereby reducing work further.
+    quicksort(arr, leftIndex, right);
+    quicksort(arr, left, rightIndex);
+  }
   return arr;
 }
 
