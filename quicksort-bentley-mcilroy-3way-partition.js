@@ -40,8 +40,7 @@ function quicksort(arr, left = 0, right = arr.length - 1){
 
     // Perform main swap. We do this before the special swaps because if one element is equal to pivot and one is
     // not, then the one that is not belongs on the other side of pivot anyway; in that case, the one that is equal
-    // will still be swapped to the special equal-partition just on the opposite side which doesn't make a difference
-    // because it's equal either way.
+    // will still be swapped to the special equal-partition just on the opposite side.
     [arr[leftIndex], arr[rightIndex]] = [arr[rightIndex], arr[leftIndex]];
 
     // Perform special swaps to the equal-partitions which are present on both the left and right sides of the main
