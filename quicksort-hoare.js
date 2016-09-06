@@ -19,7 +19,7 @@ function quicksort(arr, left = 0, right = arr.length - 1){
 }
 
 function partitionHoare(arr, left, right){
-    const pivot = arr[Math.floor((left + right) / 2)];
+  const pivot = arr[Math.floor((left + right) / 2)];
 
   do {
     while (arr[left] < pivot) {
