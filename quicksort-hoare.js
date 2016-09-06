@@ -23,8 +23,12 @@ function partitionHoare(arr, left, right){
 
   while(left < right){
 
-    while(arr[left++] < arr[pivot]);
-    while(arr[right--] > arr[pivot]);
+    while(arr[left] < arr[pivot]){
+      left++;
+    }
+    while(arr[right] > arr[pivot]){
+      right--;
+    }
 
     if(left <= right){
       [arr[left], arr[right]] = [arr[right], arr[left]];
