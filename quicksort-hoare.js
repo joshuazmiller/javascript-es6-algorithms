@@ -23,8 +23,12 @@ function partitionHoare(arr, left, right){
 
   while(left < right){
 
-    while(arr[++left] < arr[pivot]);
-    while(arr[--right] > arr[pivot]);
+    while(arr[left] < arr[pivot]){
+    	left++;
+    };
+    while(arr[right] > arr[pivot]){
+    	right--;
+    };
 
     if(left <= right){
       [arr[left], arr[right]] = [arr[right], arr[left]];
@@ -34,3 +38,5 @@ function partitionHoare(arr, left, right){
   }
   return left;
 }
+
+quicksort([3,8,6,4,6,1,9,2]); //=> [ 1, 2, 3, 4, 6, 6, 8, 9 ]
