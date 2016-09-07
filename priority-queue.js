@@ -54,11 +54,11 @@ class priorityQueue {
   _siftDown(i) {
     let maxIndex = i;
     let leftIndex = this._getLeftChild(i);
-    if (leftIndex < this.size && this.heap[leftIndex] > this.heap[maxIndex]) {
+    if (leftIndex <= this.size && this.heap[leftIndex] > this.heap[maxIndex]) {
       maxIndex = leftIndex;
     }
     let rightIndex = this._getRightChild(i);
-    if (rightIndex < this.size && this.heap[rightIndex] > this.heap[maxIndex]) {
+    if (rightIndex <= this.size && this.heap[rightIndex] > this.heap[maxIndex]) {
       maxIndex = rightIndex;
     }
     if (i !== maxIndex) {
@@ -71,9 +71,9 @@ class priorityQueue {
     if (this.size === this.maxSize) {
       throw "ERROR: exceeded max this.heap size";
     }
+    this.size++;
     this.heap[this.size] = priority;
     this._siftUp(this.size);
-    this.size++;
   }
 
   extractMax() {
@@ -81,7 +81,9 @@ class priorityQueue {
     this.heap[0] = this.heap[this.size];
     this.size--;
     this._siftDown(0);
-    return result;
+    if (this.size >= 0) {
+      return result;
+    }
   }
 
   remove(i) {
