@@ -8,12 +8,12 @@
  * 6. popBack() takes O(n) time because needs to update the node before it which there isn't a reference to.
  * 7. find(key) takes O(n) time. It involves moving through the array left-to-right until finding the node.
  * 8. erase(key) takes O(n) time. It involves searching the list for the node that points to the node containing that key
- * and updating its pointer to cut it out.
+ *    and updating its pointer to cut it out.
  * 9. empty() takes O(1) time. Simply check if the head pointer is set to nil.
  * 10. addBefore(nodeKey, newKey) takes O(n) time. The array must be transversed until finding the node pointing to the
- * nodeKey. Then we update the node found to point to the newly created node.
+ *    nodeKey. Then we update the node found to point to the newly created node.
  * 11. addAfter(nodeKey, newKey) takes O(1) time assuming the node is already located otherwise searching for the node with
- * the nodeKey takes O(n) time by itself.
+ *    the nodeKey takes O(n) time by itself.
  */
 class Node {
   constructor(key) {
