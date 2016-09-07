@@ -10,17 +10,14 @@ function quicksort(arr, left = 0, right = arr.length - 1){
   if(left < pivot - 1){
     quicksort(arr, left, pivot-1);
   }
-
   if(right > pivot){
     quicksort(arr, pivot, right);
   }
-
   return arr;
 }
 
 function partitionHoare(arr, left, right){
   const pivot = arr[Math.floor((left + right) / 2)];
-
   do {
     while (arr[left] < pivot) {
       left++;
@@ -28,14 +25,12 @@ function partitionHoare(arr, left, right){
     while (arr[right] > pivot) {
       right--;
     }
-
     if (left <= right) {
       [arr[left], arr[right]] = [arr[right], arr[left]];
       left++;
       right--;
     }
   } while (left <= right);
-  
   return left;
 }
 
