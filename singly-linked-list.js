@@ -73,23 +73,23 @@ class SinglyLinkedList {
       this.head = null;
       this.tail = null;
     } else {
-      let n = this.head;
-      while (n.next.next !== null) {
-        n = n.next;
+      let node = this.head;
+      while (node.next.next !== null) {
+        node = node.next;
       }
-      n.next = null;
-      this.tail = n;
+      node.next = null;
+      this.tail = node;
     }
   }
 
   find(key) {
-    let n = this.head;
+    let node = this.head;
     do {
-      if (n.key === key) {
-        return n;
+      if (node.key === key) {
+        return node;
       }
-      n = n.next;
-    } while (n !== null);
+      node = node.next;
+    } while (node !== null);
     return -1;
   }
 
@@ -97,12 +97,12 @@ class SinglyLinkedList {
     if (this.head.key === key) {
       this.head = this.head.next;
     } else {
-      let n = this.head;
-      while (n.next !== null) {
-        if (n.next.key === key) {
-          n.next = n.next.next;
+      let node = this.head;
+      while (node.next !== null) {
+        if (node.next.key === key) {
+          node.next = node.next.next;
         } else {
-          n = n.next;
+          node = node.next;
         }
       }
     }
@@ -113,25 +113,25 @@ class SinglyLinkedList {
   }
 
   addBefore(nodeKey, newKey) {
-    let newNode = new Node(newKey);
-    let n = this.head;
+    const newNode = new Node(newKey);
+    let node = this.head;
     do {
-      if (n.next.key === nodeKey) {
-        newNode.next = n.next;
-        n.next = newNode;
+      if (node.next.key === nodeKey) {
+        newNode.next = node.next;
+        node.next = newNode;
         return;
       }
-      n = n.next;
-    } while (n.next !== null);
+      node = node.next;
+    } while (node.next !== null);
     return -1;
   }
 
   addAfter(nodeKey, newKey) {
-    let n = this.find(nodeKey);
-    if (n !== -1) {
+    let node = this.find(nodeKey);
+    if (node !== -1) {
       let newNode = new Node(newKey);
-      newNode.next = n.next;
-      n.next = newNode;
+      newNode.next = node.next;
+      node.next = newNode;
       return;
     }
     return -1;
