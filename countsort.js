@@ -8,14 +8,14 @@
  * is placed in the appropriate spot in the result array. The spot in the position array for that specific
  * number is also incremented with each placement of that specific number so that the next time that number
  * is discovered in the input array it will be placed in the next available appropriate position. Note that
- * countsort should be attempted only on arrays with a range not exceeding a reasonablely low value. It is
+ * countsort should be attempted only on arrays with a range not exceeding a reasonably low value. It is
  * not desirable to create a few million-element arrays to sort a handful of large numbers.
  *
  * EFFICIENCY:
  * Since countsort is a non-comparison based sort, it is able to acheive runtimes faster than the mathematically
  * possible limit of any comparison based sort. Countsort acheives a runtime of just O(n) versus comparison
  * based sorts such as quicksort and mergesort which have a O(n log n) runtime. Of course, for an array to
- * be a viable candidate for a countsort, the range of the elements must be known and be in a reasonablely 
+ * be a viable candidate for a countsort, the range of the elements must be known and be in a reasonably 
  * small range (we shouldn't create arrays with a million spots just to sort a 20 item array with values up 
  * to a million).
  */
