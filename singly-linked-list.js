@@ -78,7 +78,7 @@ class SinglyLinkedList {
         n = n.next;
       }
       n.next = null;
-      this.tail = p;
+      this.tail = n;
     }
   }
 
@@ -86,7 +86,7 @@ class SinglyLinkedList {
     let n = this.head;
     do {
       if (n.key === key) {
-        return p;
+        return n;
       }
       n = n.next;
     } while (n !== null);
