@@ -5,15 +5,15 @@
  * 3. popFront() takes O(1) time.
  * 4. pushBack(key) takes O(1) time with a tail pointer, otherwise O(n).
  * 5. topBack() takes O(1) time with a tail pointer, otherwise O(n).
- * 6. popBack() takes O(n) time because needs to update the node before it which there isn't a reference to.
- * 7. find(key) takes O(n) time. It involves moving through the array left-to-right until finding the node.
- * 8. erase(key) takes O(n) time. It involves searching the list for the node that points to the node containing that key
- *    and updating its pointer to cut it out.
- * 9. empty() takes O(1) time. Simply check if the head pointer is set to nil.
- * 10. addBefore(nodeKey, newKey) takes O(n) time. The array must be transversed until finding the node pointing to the
- *    nodeKey. Then we update the node found to point to the newly created node.
- * 11. addAfter(nodeKey, newKey) takes O(1) time assuming the node is already located otherwise searching for the node with
- *    the nodeKey takes O(n) time by itself.
+ * 6. popBack() takes O(n) time because we need to update the node before it which we don't have a reference to.
+ * 7. find(key) takes O(n) time because we need to move through the array left-to-right until we find the node.
+ * 8. erase(key) takes O(n) time because it involves searching for the node that points to the given key so that we
+ *    can update it to skip the key.
+ * 9. empty() takes O(1) time because we simply check if the head pointer is set to null.
+ * 10. addBefore(nodeKey, newKey) takes O(n) time. The list must be transversed until we find the node pointing to the
+ *     nodeKey. Then we can update the node we found to point to the newly created node.
+ * 11. addAfter(nodeKey, newKey) takes O(1) time assuming we know the position of the nodeKey, otherwise searching for 
+ *     the nodeKey takes O(n) time by itself.
  */
 class Node {
   constructor(key) {
@@ -109,7 +109,7 @@ class SinglyLinkedList {
   }
 
   isEmpty() {
-    return head === null;
+    return this.head === null;
   }
 
   addBefore(nodeKey, newKey) {
