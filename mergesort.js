@@ -38,7 +38,7 @@ function merge(B, C){
       D.push(C.shift());
     }
   }
-  return D.concat(B.slice()).concat(C.slice());
+  return D.concat(B.slice(),C.slice());
 }
 
 mergesort([5,8,3,4,6,9,1,2,3,7,1,10,0]); // => [ 0, 1, 1, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10 ]
