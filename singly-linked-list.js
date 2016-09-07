@@ -11,9 +11,9 @@
  * and updating its pointer to cut it out.
  * 9. empty() takes O(1) time. Simply check if the head pointer is set to nil.
  * 10. addBefore(nodeKey, newKey) takes O(n) time. The array must be transversed until finding the node pointing to the
- * parameter's node. Then we update to point to a new node with the key.
- * 11. addAfter(nodeKey, newKey) takes O(1) time assuming the node is already located otherwise searching for the key
- * itself takes O(n) time.
+ * nodeKey. Then we update the node found to point to the newly created node.
+ * 11. addAfter(nodeKey, newKey) takes O(1) time assuming the node is already located otherwise searching for the node with
+ * the nodeKey takes O(n) time by itself.
  */
 class Node {
   constructor(key) {
