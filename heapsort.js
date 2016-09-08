@@ -8,13 +8,12 @@
  * until the size variable is 0 and there are no more elements left to sort.
  *
  * EFFICIENCY:
- * Heapsort performs in its worst case at O(n log n) time while also sorting in-place without taking additional space.
- * It takes O(n log n) time because we call siftDown roughly n/2 times and each siftDown operation takes a maximum of
- * log n number of swaps to get to the correct position. Heapsort has an advantage over quicksort in that quicksort has
- * an average O(n log n) time but can perform as poorly as O(n^2) in some circumstances. Heapsort always performs worst
- * case O(n log n). However, in practice quicksort tends to be faster (at least according to a lecture at UCSD). There
- * is also a method called introsort which starts out with a quicksort but if it detects that the quicksort is running
- * suboptimally then it switches to using the heapsort algorithm.
+ * Heapsort performs in its worst case at O(n log n) time which is the minimum upper bound for any comparison based sort
+ * while also sorting in-place without taking additional space. Heapsort therefore has an advantage over quicksort 
+ * because quicksort has an average O(n log n) time but can perform as poorly as O(n^2) in some circumstances. However, 
+ * in practice quicksort tends to perform a bit faster (at least according to what I've read). Because of this, there
+ * is another sort method called introsort which starts out with a quicksort but if it detects that the quicksort is 
+ * running suboptimally then it switches to using the heapsort algorithm.
  */
 function heapsort(arr){
   let size = arr.length - 1;
