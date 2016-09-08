@@ -18,7 +18,7 @@
  */
 function heapsort(arr){
   let size = arr.length - 1;
-  // We only need to worry about sifting down arr[length/2] to 0 because the bottom elements have no where lower to go.
+  // We only need to worry about sifting down arr[length/2] to 0 because the bottom elements have nowhere lower to go.
   for(let i = arr.length/2; i >= 0; i--){
     siftDown(i);
   }
