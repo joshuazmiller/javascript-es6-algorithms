@@ -31,14 +31,22 @@ function mergesort(A){
 }
 function merge(B, C){
   const D = [];
-  while(B.length && C.length){
-    if(B[0] <= C[0]){
-      D.push(B.shift());
+  let i = 0, j = 0;
+  while(i < B.length, j < C.length){
+    if(B[i] <= C[j]){
+      D.push(B[i]);
+      i++;
     }else{
-      D.push(C.shift());
+      D.push(C[j]);
+      j++;
     }
   }
-  return D.concat(B.slice(),C.slice());
+  if(i < B.length){
+    D.push(B[i]);
+  }else if(j < C.length){
+    D.push(C[j]);
+  }
+  return D;
 }
 
 mergesort([5,8,3,4,6,9,1,2,3,7,1,10,0]); // => [ 0, 1, 1, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10 ]
