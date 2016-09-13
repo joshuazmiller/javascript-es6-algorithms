@@ -12,7 +12,7 @@
  * The following article can also help to better understand the process involved in implementing this data structure:
  * https://www.topcoder.com/community/data-science/data-science-tutorials/disjoint-set-data-structures/
  */
-class disjointSet {
+class DisjointSet {
   /**
    * 'this.values' stores the sets starting from integer 0 and incrementing 1,2,3,4 etc. This simplifies our function,
    * but in real world applications additional data might be added to an additional array with corresponding indexes.
@@ -120,7 +120,7 @@ class disjointSet {
  * the 3 arrays in this format: [this.values, this.parents, this.ranks]
  */
 function test() {
-  const a = new disjointSet();
+  const a = new DisjointSet();
   a.preProcess([0, 1, 2, 3, 4, 5]);
   console.log(a.printValues()); // [ [ 0, 1, 2, 3, 4, 5 ], [ 0, 1, 2, 3, 4, 5 ], [ 0, 0, 0, 0, 0, 0 ] ]
   a.union(2, 3);
