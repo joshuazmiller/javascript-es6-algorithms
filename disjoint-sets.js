@@ -1,7 +1,15 @@
 /**
- * This data structure helps with sets. It provides an efficient way to combine set elements into larger sets while
- * achieving merge/union and find times at near constant efficiency O(log*n) which is max O(5) for any reasonable sets.
- * It's a good idea to read the following article to better understand the process involved in this data structure.
+ * This data structure provides an efficient implementation for disjoint sets. A disjoint set is a structure where 
+ * elements are not shared in between sets, in other words, they belong to one and only one set. A disjoint set only 
+ * requires union/merge functionality and does not require the traditional set functions of intersect, difference, and 
+ * compliment. 
+ * 
+ * The following implementation provides an optimal approach for achieving merge/union and find times at near constant
+ * efficiency, O(log*n) which is max O(5) for any reasonable set sizes.
+ * 
+ * You can read more about disjoint sets at the latter portion of this article: 
+ * https://msdn.microsoft.com/en-us/library/aa289153(v=vs.71).aspx 
+ * The following article can also help to better understand the process involved in implementing this data structure:
  * https://www.topcoder.com/community/data-science/data-science-tutorials/disjoint-set-data-structures/
  */
 class disjointSet {
@@ -18,6 +26,7 @@ class disjointSet {
     this.values = [];
     this.parents = [];
     this.ranks = [];
+    //this.data = []; can be added to store data for each index of the values array
   }
 
   /**
