@@ -10,7 +10,7 @@ class disjointSet {
    * but in real world applications additional data might be added to an additional array with corresponding indexes.
    * 'this.parents' stores the relationships between sets. For example value 0 might have a parent 5 which means that 0
    * is in the same set as value 5. A value may have itself as its parent in which case we consider it the root of its
-   * set. this.ranks holds the level the value is on with 0 being the bottom most level; this helps us apply the "union
+   * set. 'this.ranks' holds the level the value is on with 0 being the bottom most level; this helps us apply the "union
    * by rank" heuristic detailed in
    * https://www.topcoder.com/community/data-science/data-science-tutorials/disjoint-set-data-structures/
    */
@@ -47,6 +47,13 @@ class disjointSet {
 
   printValues() {
     return [this.values, this.parents, this.ranks];
+  }
+  
+  /**
+   * Use this function to check if a given value is in the same set.
+   */
+  isReachable(a, b) {
+    return this.findParent(a) === this.findParent(b);
   }
 
   findParent(a) {
@@ -98,17 +105,20 @@ class disjointSet {
 function test() {
   const a = new disjointSet();
   a.preProcess([0, 1, 2, 3, 4, 5]);
-  console.log(a.printValues());
+  console.log(a.printValues()); // [ [ 0, 1, 2, 3, 4, 5 ], [ 0, 1, 2, 3, 4, 5 ], [ 0, 0, 0, 0, 0, 0 ] ]
   a.union(2, 3);
-  console.log(a.printValues());
+  console.log(a.printValues()); // [ [ 0, 1, 2, 3, 4, 5 ], [ 0, 1, 3, 3, 4, 5 ], [ 0, 0, 0, 1, 0, 0 ] ]
   a.union(4, 3);
-  console.log(a.printValues());
+  console.log(a.printValues()); // [ [ 0, 1, 2, 3, 4, 5 ], [ 0, 1, 3, 3, 3, 5 ], [ 0, 0, 0, 1, 0, 0 ] ]
+  console.log(a.isReachable(4,3)); // true
+  console.log(a.isReachable(5,3)); // false
   a.union(0, 5);
-  console.log(a.printValues());
+  console.log(a.printValues()); // [ [ 0, 1, 2, 3, 4, 5 ], [ 5, 1, 3, 3, 3, 5 ], [ 0, 0, 0, 1, 0, 1 ] ]
   a.union(5, 3);
-  console.log(a.printValues());
+  console.log(a.printValues()); // [ [ 0, 1, 2, 3, 4, 5 ], [ 5, 1, 3, 3, 3, 3 ], [ 0, 0, 0, 2, 0, 1 ] ]
+  console.log(a.isReachable(5,3)); // true
   a.union(2, 3);
   a.postProcess();
-  console.log(a.printValues());
+  console.log(a.printValues()); // [ [ 0, 1, 2, 3, 4, 5 ], [ 3, 1, 3, 3, 3, 3 ], [ 0, 0, 0, 2, 0, 1 ] ]
 }
 test();
