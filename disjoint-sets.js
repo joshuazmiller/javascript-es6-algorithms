@@ -5,7 +5,7 @@
  * compliment. 
  * 
  * The following implementation provides an optimal approach for achieving merge/union and find times at near constant
- * efficiency, O(log*n) which is max O(5) for any reasonable set sizes.
+ * efficiency, O(log*n) which is max O(5) for any reasonable set size.
  * 
  * You can read more about disjoint sets at the latter portion of this article: 
  * https://msdn.microsoft.com/en-us/library/aa289153(v=vs.71).aspx 
@@ -37,9 +37,10 @@ class disjointSet {
    */
   preProcess(arr) {
     for (const elm of arr) {
-      this.values.push(elm);
-      this.parents.push(elm);
+      this.values.push(this.values.length);
+      this.parents.push(this.parents.length);
       this.ranks.push(0);
+      //this.data.push(elm.data); can store some data in an expanded implementation
     }
   }
 
@@ -52,6 +53,13 @@ class disjointSet {
     for (let i = 0; i < this.values.length; i++) {
       this.pathCompression(i)
     }
+  }
+  
+  addValue(elm) {
+    this.values.push(this.values.length);
+    this.parents.push(this.parents.length);
+    this.ranks.push(0);
+    // this.data.push(elm.data); can store some data in an expanded implementation
   }
 
   printValues() {
@@ -129,5 +137,7 @@ function test() {
   a.union(2, 3);
   a.postProcess();
   console.log(a.printValues()); // [ [ 0, 1, 2, 3, 4, 5 ], [ 3, 1, 3, 3, 3, 3 ], [ 0, 0, 0, 2, 0, 1 ] ]
+  a.addValue(6);
+  console.log(a.printValues()); // [ [ 0, 1, 2, 3, 4, 5, 6 ], [ 3, 1, 3, 3, 3, 3, 6 ], [ 0, 0, 0, 2, 0, 1, 0 ] ]
 }
 test();
