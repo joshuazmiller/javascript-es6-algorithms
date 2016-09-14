@@ -190,7 +190,8 @@ class HashMap {
     }
     for (let i = 0; i < buckets[hash].length; i++) {
       if (buckets[hash][i].key === key) {
-       buckets[hash].splice(i, 1); // chaining is infrequent so a splice and resize of i is not costly
+        // chaining is infrequent so a splice and resize of i is not costly
+        buckets[hash].splice(i, 1);
         if (buckets[hash].length === 0) {
           buckets[hash] = undefined; // don't splice and trigger a resize
         }
