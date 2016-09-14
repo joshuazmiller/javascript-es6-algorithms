@@ -190,9 +190,9 @@ class HashMap {
     }
     for (let i = 0; i < buckets[hash].length; i++) {
       if (buckets[hash][i].key === key) {
-        buckets[hash].splice(i, 1);
+       buckets[hash].splice(i, 1); // chaining is infrequent so a splice and resize of i is not costly
         if (buckets[hash].length === 0) {
-          buckets.splice(hash, 1);
+          buckets[hash] = undefined; // don't splice and trigger a resize
         }
         this.numberOfKeys--;
         return "success";
@@ -222,6 +222,7 @@ function test() {
   console.log(map.find(8009997890)); // not found
   console.log(map.remove("chris")); // success
   console.log(map.find("chris")); // not found
+  console.log(map.remove("tomas")); // not found
   map.print(); // [ { key: 6108887654, value: 'robert' } ] index, [ { key: 4107771234, value: 'monika' } ] index
 }
 test();
