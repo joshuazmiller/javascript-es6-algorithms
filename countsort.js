@@ -13,29 +13,45 @@
  * a countsort, the range of the elements must be known and be in a reasonably small range (we shouldn't create an array
  * with a million spots just to sort a 20 item array with values up to a million).
  */
-function countsort(inputArr, max) {
-  const countArr = new Array(max + 1).fill(0); // max+1 to include 0
+function countsort(inputArr, max){
+  const range = max + 1; // because the range includes 0 to max
+  const countArr = new Array(range).fill(0);
+  const positionArr = new Array(range).fill(0);
   const resultArr = [];
 
   /**
-   * countArr stores the number of times a specific integer occurs. For example countArr[2] will store the number of
+   * countArr stores the number of times a specific integer occurs. For example countArr[2] will store the number of 
    * times "2" occurs in the inputArr. countArr has one element designated for every number in the range.
    */
-  for (const item of inputArr) {
+  for(const item of inputArr){
     countArr[item] += 1;
   }
 
   /**
-   * The inner loop doesn't increase the complexity of our function since the inner loop is doing n insertions and the
-   * outer loop is just providing the number of times to insert each value.
+   * positionArr has a spot corresponding to every 'number' in the range which stores the place the 'number' will begin 
+   * to appear in the resultArr. For example, if there are 3 "0"s in inputArr then positionArr[1] will hold 3 because 
+   * resultArr will stop putting "0"s and start placing "1"s when it reaches resultArr[3]. If there are no "0"s in the 
+   * inputArr then positionArr[1] will hold 0 because resultArr should stop placing "0"s and start placing "1"s immediately.
    */
-  let position = 0;
-  for (let i = 0; i < countArr.length; i++) {
-    const count = countArr[i];
-    for (let j = 0; j < count; j++) {
-      resultArr[position] = i;
-      position++;
-    }
+  for(let index = 1; index < range; index++){
+    /**
+     * positionArr[1] holds the spot in resultArr that "0"s should stop appearing. So positionArr[1] will hold the place 
+     * where the previous element began (in "0"'s case at spot 0) + the number of times "0" appears. If "0" appears 3 
+     * times then positionArr[1] will hold 3 and resultArr[0], resultArr[1], and resultArr[2] will hold "0"s and resultArr[3] 
+     * will hold "1" (if there are any "1"s, if there aren't any "1"s then positionArr[2] will hold 3 as well).
+     */
+    positionArr[index] = positionArr[index-1] + countArr[index-1];
+  }
+
+
+  for(const item of inputArr){
+    /**
+     * We incrementally grab each item in the inputArr and place that number into an appropriate spot in the resultArr; 
+     * we then increment the element of the positionArr corresponding to that number by 1 so that the next time we place 
+     * an item with that number from inputArr it will go into the next available appropriate spot that the number belongs.
+     */
+    resultArr[positionArr[item]] = item;
+    positionArr[item] += 1;
   }
 
   return resultArr;
