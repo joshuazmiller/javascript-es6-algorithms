@@ -21,18 +21,17 @@
  */
 function countsort(inputArr, max){
   const range = max + 1; // because the range includes 0 to max
-  const numItems = inputArr.length;
   const countArr = new Array(range).fill(0);
   const positionArr = new Array(range).fill(0);
-  const resultArr = new Array(numItems);
+  const resultArr = [];
 
   /**
    * countArr stores the number of times a specific integer occurs. For example countArr[2] will store
    * the number of times "2" occurs in the inputArr. countArr has one element designated for every number
    * in the range.
    */
-  for(let index = 0; index < numItems; index++){
-    countArr[inputArr[index]] += 1;
+  for(const item of inputArr){
+    countArr[item] += 1;
   }
 
   /**
@@ -54,15 +53,15 @@ function countsort(inputArr, max){
   }
 
 
-  for(let index = 0; index < numItems; index++){
+  for(const item of inputArr){
     /**
      * We incrementally grab each item in the inputArr and place that number into an appropriate
      * spot in the resultArr; we then increment the element of the positionArr corresponding to
      * that number by 1 so that the next time we place an item with that number from inputArr it
      * will go into the next available appropriate spot that the number belongs.
      */
-    resultArr[positionArr[inputArr[index]]] = inputArr[index];
-    positionArr[inputArr[index]] += 1;
+    resultArr[positionArr[item]] = item;
+    positionArr[item] += 1;
   }
 
   return resultArr;
