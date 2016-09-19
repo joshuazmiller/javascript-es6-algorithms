@@ -150,8 +150,6 @@ class BinarySearchTree {
   }
 
   /**
-   * NOTE: This function is not correct! Working on it.
-   *
    * To remove a node we must replace the removed node with its next largest node; otherwise we might leave a gap in the
    * tree where the removed node's children have no parent. To do this we use our nextLargest function to find the next
    * largest node and replace the removed node with that node. The node found by nextLargest by definition will not
@@ -163,39 +161,51 @@ class BinarySearchTree {
    */
   remove(key) {
     const nodeToRemove = this.find(key);
-    const nextLargest = this.nextLargest(nodeToRemove);
-    if (nextLargest === null || nextLargest.parent === null) {
-      if (this.root === nodeToRemove) {
-        this.root = nodeToRemove.left;
-        this.root.parent = null;
+    if (nodeToRemove.right === null) {
+      // We promote the left child.
+      if (nodeToRemove.left) {
+        nodeToRemove.left.parent = nodeToRemove.parent;
+      }
+      // We choose which side of the parent to place the promoted left child.
+      if (key < nodeToRemove.parent.key) {
+        nodeToRemove.parent.left = nodeToRemove.left;
       } else {
-        nodeToRemove.left ? nodeToRemove.parent.left = nodeToRemove.left : '';
-        nodeToRemove.left ? nodeToRemove.left.parent = nodeToRemove.parent : '';
-        nodeToRemove.parent.right = null;
+        nodeToRemove.parent.right = nodeToRemove.left;
       }
-    } else if (nextLargest.key !== nodeToRemove.parent.key) {
-      const nextLargestParent = nextLargest.parent;
-      if (this.root === nodeToRemove) {
-        this.root = nextLargest;
-        this.root.parent = null;
-      } else {
-        if (nextLargest.key > nodeToRemove.parent.key) {
-          nodeToRemove.parent.right = nextLargest;
-        } else {
-          nodeToRemove.parent.left = nextLargest;
-        }
-        nextLargest.parent = nodeToRemove.parent;
-      }
-      if (nextLargest !== nodeToRemove.right) {
-        nextLargestParent.left = nextLargest.right;
-        nextLargestParent.left ? nextLargestParent.left.parent = nextLargestParent : '';
-        nextLargest.right = nodeToRemove.right;
-        nextLargest.right ? nodeToRemove.right.parent = nextLargest : '';
-      }
-      nextLargest.left = nodeToRemove.left;
-      nodeToRemove.left ? nodeToRemove.left.parent = nextLargest : '';
     } else {
-      nodeToRemove.parent.left = null;
+      const nextLargest = this.nextLargest(nodeToRemove);
+      const rightChild = nextLargest.right;
+      const nextLargestParent = nextLargest.parent;
+
+      // Replace the node being removed.
+      nextLargest.left = nodeToRemove.left;
+      nextLargest.left ? nextLargest.left.parent = nextLargest : '';
+      if (nextLargest !== nodeToRemove.right) { // prevent assigning the right to itself
+        nextLargest.right = nodeToRemove.right;
+        nextLargest.right ? nextLargest.right.parent = nextLargest : '';
+      }
+      nextLargest.parent = nodeToRemove.parent;
+      if (nextLargest.parent) {
+        if (nextLargest.key < nextLargest.parent.key) {
+          nextLargest.parent.left = nextLargest;
+        } else {
+          nextLargest.parent.right = nextLargest;
+        }
+      } else {
+        this.root = nextLargest;
+      }
+
+      // Promote the right child. (The left child will be null because the next largest integer function only stops when the left is null.)
+      if (rightChild) {
+        rightChild.parent = nextLargestParent;
+        if (rightChild.key < rightChild.parent.key) {
+          rightChild.parent.left = rightChild;
+        } else {
+          rightChild.parent.right = rightChild;
+        }
+      } else {
+        nextLargestParent.left = null;
+      }
     }
     nodeToRemove.parent = null;
     nodeToRemove.left = null;
