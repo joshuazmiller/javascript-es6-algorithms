@@ -195,7 +195,7 @@ class BinarySearchTree {
         this.root = nextLargest;
       }
 
-      // Promote the right child. (The left child will be null because the next largest integer function only stops when the left is null.)
+      // Promote the right child. (Left child will be null because the nextLargest function only stops when left is null.)
       if (rightChild) {
         rightChild.parent = nextLargestParent;
         if (rightChild.key < rightChild.parent.key) {
