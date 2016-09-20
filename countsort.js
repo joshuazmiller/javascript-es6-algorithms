@@ -4,7 +4,11 @@
  * range of integers in an array, and it will count the amount of times each number appears in the array and place them
  * into a new array in their correct order and with the number of times each value should appear. Note that countsort
  * should be used only on arrays with a range not exceeding a reasonably low value. It is not desirable to create a few
- * million element arrays to sort a handful of large numbers.
+ * million element arrays to sort a handful of large numbers. Note that this implementation leads to a stable sort.
+ * There is an alternative implementation which does not create a position array and instead directly uses the count array
+ * to place each value the correct number of times. Although the alternative implementation is a bit simpler it does not
+ * serve us well when we need to maintain the order of the elements with equal key values. Therefore, this solution is
+ * more robust.
  *
  * EFFICIENCY:
  * Since countsort is a non-comparison based sort, it is able to achieve run times faster than the mathematically
