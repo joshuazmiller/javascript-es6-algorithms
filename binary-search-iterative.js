@@ -23,14 +23,16 @@ function binarySearchIterative(arr, key){
   return mid;
 }
 
-binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], -5); //0
-binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 8);  //1
-binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 12); //2
-binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 17); //3
-binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 20); //4
-binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 60); //5
-binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 75); //6
-binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 77); //7
-binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 88); //8
-binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 913);//9
-binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 13); //-1
+binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], -5);  //0
+binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 8);   //1
+binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 12);  //2
+binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 17);  //3
+binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 20);  //4
+binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 60);  //5
+binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 75);  //6
+binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 77);  //7
+binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 88);  //8
+binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 913); //9
+binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 13);   //-1
+binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 1000); //-1
+binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], -10);  //-1
