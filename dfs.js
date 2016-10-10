@@ -11,7 +11,7 @@
  * @return {Array} an array of node values.
  */
 function preorderDFS(root) {
-  var stack = [],
+  let stack = [],
     res = [];
 
   while (true) {
@@ -30,7 +30,7 @@ function preorderDFS(root) {
 }
 
 function inorderDFS(root) {
-  var stack = [],
+  let stack = [],
     res = [];
 
   while (true) {
@@ -49,7 +49,7 @@ function inorderDFS(root) {
 }
 
 function postorderDFS(root) {
-  var stack = [],
+  let stack = [],
     res = [];
 
   while (true) {
