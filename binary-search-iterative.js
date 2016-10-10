@@ -6,8 +6,8 @@
  * that the iterative version takes less stack space.
  */
 function binarySearchIterative(arr, key){
-  let high = arr.length - 1, low = 0,
-    mid = Math.floor((high - low) / 2);
+  let high = arr.length, low = 0,
+    mid = Math.ceil((high - low) / 2);
   while(key !== arr[mid]){
     if(mid === 0 || mid === high){
       return -1;
@@ -36,3 +36,5 @@ binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 913); //9
 binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 13);   //-1
 binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], 1000); //-1
 binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], -10);  //-1
+binarySearchIterative([-5, 8], -5);  //0
+binarySearchIterative([-5, 8], 8);   //1
