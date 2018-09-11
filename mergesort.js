@@ -41,10 +41,13 @@ function merge(B, C){
       j++;
     }
   }
-  if(i < B.length){
+  while(i < B.length){
     D.push(B[i]);
-  }else if(j < C.length){
+    i++;
+  }
+  while(j < C.length){
     D.push(C[j]);
+    j++;
   }
   return D;
 }
