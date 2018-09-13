@@ -8,7 +8,7 @@
 function binarySearchIterative(arr, key){
   let high = arr.length, low = 0, mid;
   while(low <= high){
-  	mid = Math.floor((high + low) / 2);
+    mid = Math.floor((high + low) / 2);
     if(arr[mid] > key){
       high = mid - 1;
     }else if(arr[mid] < key){
