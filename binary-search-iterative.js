@@ -6,21 +6,18 @@
  * that the iterative version takes less stack space.
  */
 function binarySearchIterative(arr, key){
-  let high = arr.length, low = 0,
-    mid = Math.ceil((high - low) / 2);
-  while(key !== arr[mid]){
-    if(mid === 0 || mid === high){
-      return -1;
-    }
-    if(key < arr[mid]){
-      high = mid;
-      mid -= Math.ceil((high - low) / 2);
+  let high = arr.length, low = 0, mid;
+  while(low <= high){
+  	mid = Math.floor((high + low) / 2);
+    if(arr[mid] > key){
+      high = mid - 1;
+    }else if(arr[mid] < key){
+      low = mid + 1;
     }else{
-      low = mid;
-      mid += Math.ceil((high - low) / 2);
+      return mid;
     }
   }
-  return mid;
+  return -1;
 }
 
 binarySearchIterative([-5, 8, 12, 17, 20, 60, 75, 77, 88, 913], -5);  //0
